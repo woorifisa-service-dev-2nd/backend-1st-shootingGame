@@ -33,8 +33,8 @@ public class Soldier implements Comparable<Soldier> {
         return hitted;
     }
 
-    public void setShootingHit(String hit, int now) {
-        this.hit = this.hit.substring(0, now) + 'X' + this.hit.substring(now + 1);
+    public void setShootingHit(String hit, int hitted) {
+        this.hit = this.hit.substring(0, hitted) + 'X' + this.hit.substring(hitted + 1);
         this.hitted++;
     }
 

@@ -12,7 +12,7 @@ public class Shoot {
 
             for (Soldier soldier : soldierList) {
 
-                if (Math.floor(Math.random() * 10) >= 4) soldier.setShootingHit(soldier.getHit(), i);
+                if (Math.floor(Math.random() * 10) >= 4) soldier.setShootingHit(soldier.getHit(), soldier.getHitted());
 
                 System.out.println(soldier.getName() + "(" + soldier.getGunType() + "):" + soldier.getHit());
             }
