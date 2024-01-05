@@ -16,7 +16,7 @@ public class Handler {
         Set<String> typeSet = new HashSet<>();
 
         try {
-            String inputPattern = "^[a-zA-Z]{1,10}:k[1-9]$";
+            String inputPattern = "^[a-zA-Z]{1,10}:k[1-9]*$";
 
             String inputSoldiers = soldierParser.getSoldierList(dataName);
 

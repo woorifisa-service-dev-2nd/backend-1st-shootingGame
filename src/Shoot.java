@@ -14,7 +14,11 @@ public class Shoot {
 
                 if (Math.floor(Math.random() * 10) >= 4) soldier.setShootingHit(soldier.getHit(), soldier.getHitted());
 
-                System.out.println(soldier.getName() + "(" + soldier.getGunType() + "):" + soldier.getHit());
+                String output = soldier.getName() + "(" + soldier.getGunType() + "):";
+
+                System.out.printf("%-16s", output);
+                System.out.println(soldier.getHit());
+
             }
 
             System.out.println();
