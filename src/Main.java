@@ -5,13 +5,14 @@ public class Main {
     public static void main(String[] args) {
 
         String data = "dummy-data.csv";
-        Handler handler = new Handler();
+        InputHandler handler = new InputHandler();
+        SoldierParser soldierParser = new SoldierParser();
 
         try {
 
             int count = handler.inputValueHandler();
 
-            List<Soldier> soldierList = handler.soldierListParsingHandler(data, count);
+            List<Soldier> soldierList = soldierParser.soldierListParsingHandler(data, count);
 
             Shoot shooting = new Shoot();
 

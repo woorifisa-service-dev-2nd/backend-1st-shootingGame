@@ -6,9 +6,9 @@ public class Shoot {
 
         System.out.println("사격결과");
 
-        for (int i = 0; i < count; i++) {
+        for (int i = 1; i <= count; i++) {
 
-            System.out.println((i + 1) + " / " + count);
+            System.out.println((i) + " / " + count);
 
             for (Soldier soldier : soldierList) {
 

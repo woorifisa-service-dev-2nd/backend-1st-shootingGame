@@ -1,5 +1,5 @@
 
-public class Soldier implements Comparable<Soldier> {
+public class Soldier {
 
     private final String name;
     private final String gunType;
@@ -40,11 +40,6 @@ public class Soldier implements Comparable<Soldier> {
 
     public void setHit(String hit) {
         this.hit = hit;
-    }
-
-    @Override
-    public int compareTo(Soldier o) {
-        return o.hit.length() - this.hit.length();
     }
 
 }
