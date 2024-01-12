@@ -10,6 +10,10 @@ public class FindWinner {
 
         Soldier winner = soldierList.get(0);
 
+        WinnerLogger winnerLogger = new WinnerLogger();
+
+        winnerLogger.loggingWinner(winner);
+
         System.out.println("축하합니다! 사격 성적 최우수자는 " + winner.getName() + "님 입니다!");
 
     }
