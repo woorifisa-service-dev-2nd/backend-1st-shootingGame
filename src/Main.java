@@ -1,31 +1,49 @@
+import java.io.IOException;
 import java.util.*;
+import java.util.logging.*;
+import java.util.logging.Formatter;
 
 public class Main {
+    public static Handler handler;
+    public static int countLog = 0;
 
-    public static void main(String[] args) {
+    public static final Logger logger = Logger.getLogger(WinnerLogger.class.getName());
+    public static void main(String[] args) throws IOException {
 
-        String data = "dummy-data.csv";
-        InputHandler handler = new InputHandler();
-        SoldierParser soldierParser = new SoldierParser();
+        handler = new FileHandler("winnerLogFile.log"); // 로그 핸들러 여기서 한번만 생성
 
-        try {
+        Formatter formatter = new Formatter() {
+            @Override
+            public String format(LogRecord record) {
+                return record.getMessage();
+            }
+        };
 
-            int count = handler.inputValueHandler();
+        handler.setFormatter(formatter);
+        logger.addHandler(handler);
 
-            List<Soldier> soldierList = soldierParser.soldierListParsingHandler(data, count);
+        RunShootingGame runShootingGame = new RunShootingGame();
 
-            Shoot shooting = new Shoot();
+        System.out.println("사격 개시 : 1\n사격 종료 : 0");
 
-            shooting.startShoot(soldierList, count);
+        Scanner scanner = new Scanner(System.in);
 
-            FindWinner findWinner = new FindWinner();
+        int isStart = 0;
 
-            findWinner.getWinner(soldierList);
+        while (true) {
 
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+            isStart = scanner.nextInt();
+
+            if (isStart == 0) {
+                System.out.println("프로그램 종료");
+                break;
+            } else if (isStart == 1) {
+                runShootingGame.run();
+            } else {
+                System.out.println("1 또는 0을 입력해주세요.");
+            }
+
         }
 
     }
-
 }
